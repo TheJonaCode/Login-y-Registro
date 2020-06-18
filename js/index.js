@@ -9,7 +9,6 @@ formulario.addEventListener('submit', login);
 //Funciones a ejecutar
 function login(e){
     e.preventDefault();
-    console.log('Se ejecuta evento de form');
 
     let usuarioVal = usuario.value;
     let passwordVal = password.value;
