@@ -8,12 +8,12 @@ const formulario = document.getElementById('formRegistro');
 formulario.addEventListener('submit', registro);
 
 function registro(e){
-    e.prevenDefault();
+    e.preventDefault();
     
-    let nombreVal = nombre.Value;
-    let emailVal = email.Value;
-    let userVal = user.Value;
-    let passValue = pass.Value;
+    let nombreVal = nombre.value;
+    let emailVal = email.value;
+    let userVal = user.value;
+    let passValue = pass.value;
     
     if(nombreVal == '' || emailVal == '' || userVal == ''|| passValue == ''){
         creaMensaje('Verifica tus campos', 'danger');
@@ -24,7 +24,7 @@ function registro(e){
         nombre: nombreVal,
         email: emailVal,
         user: userVal,
-        pass, passValue
+        pass: passValue
     }
     
     localStorage.setItem('usuario', JSON.stringify(usuario));
@@ -35,15 +35,4 @@ function registro(e){
     pass.Value = '';
 
    creaMensaje('Usuario Registrado!', 'success');
-}
-
-function creaMensaje(texto, tipo){
-    const nuevoElemento = document.createElement('div');
-    nuevoElemento.innerText = texto;
-    nuevoElemento.classList.add('alert','alert-' + tipo);
-    const divMensaje= document.getElementById('mensaje');
-    divMensaje.appendChild(nuevoElemento);
-    setTimeout(function{
-        nuevoElemento.remove();
-    },2000)
 }
